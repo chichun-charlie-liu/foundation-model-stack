@@ -500,11 +500,6 @@ class LLaMAHeadlessYOCO(LLaMAHeadless):
         # NOTE super.init will have created all the Llama layers already. Among which, we will not
         # need the original .layers, i.e. the modList of transformer blocks.
 
-        # [CL] make sure YOCO specific defaults exists, values based on YOCO paper/repo
-        config.sliding_window = getattr(config, "sliding_window", 1024)  # 1st line on page 8 of the paper
-        config.max_batch_size = getattr(config, "batch_size", 8)
-        # print(config)
-
         if config is not None:
             self.config = config
         else:
